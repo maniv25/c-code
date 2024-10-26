@@ -1,195 +1,172 @@
-<html>
-<head>
-<title>main.cpp</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.s0 { color: #b3ae60;}
-.s1 { color: #bcbec4;}
-.s2 { color: #6aab73;}
-.s3 { color: #7a7e85;}
-.s4 { color: #cf8e6d;}
-.s5 { color: #bcbec4;}
-.s6 { color: #2aacb8;}
-</style>
-</head>
-<body bgcolor="#1e1f22">
-<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
-<tr><td><center>
-<font face="Arial, Helvetica" color="#000000">
-main.cpp</font>
-</center></td></tr></table>
-<pre><span class="s0">#include </span><span class="s2">&lt;iostream&gt;   </span><span class="s3">// This library allows input and output operations (e.g., reading user input or displaying text).</span>
-<span class="s0">#include </span><span class="s2">&lt;string&gt;     </span><span class="s3">// This library allows us to use and manipulate text (strings).</span>
-<span class="s0">#include </span><span class="s2">&lt;cmath&gt;      </span><span class="s3">// This library provides mathematical functions, such as square root and power functions.</span>
+#include <iostream>   // This library allows input and output operations (e.g., reading user input or displaying text).
+#include <string>     // This library allows us to use and manipulate text (strings).
+#include <cmath>      // This library provides mathematical functions, such as square root and power functions.
 
-<span class="s4">int </span><span class="s1">main</span><span class="s5">() {</span>
-    <span class="s3">// Declare several variables used throughout the program</span>
-    <span class="s4">int </span><span class="s1">iq</span><span class="s5">, </span><span class="s1">x</span><span class="s5">, </span><span class="s1">y</span><span class="s5">;                  </span><span class="s3">// 'iq' for IQ input, 'x' and 'y' for number inputs during calculations.</span>
-    <span class="s1">std::string choice</span><span class="s5">;             </span><span class="s3">// 'choice' will store user's yes/no input for various decisions.</span>
-    <span class="s4">int </span><span class="s1">programChoice</span><span class="s5">;              </span><span class="s3">// 'programChoice' stores the user's selection for which program to run.</span>
-    <span class="s1">std::string operation</span><span class="s5">;          </span><span class="s3">// 'operation' stores the user’s choice between multiplication/division or power/square root.</span>
-    <span class="s1">std::string continueProgram</span><span class="s5">;    </span><span class="s3">// 'continueProgram' checks if the user wants to keep using the program.</span>
-    <span class="s1">std::string confirm</span><span class="s5">;            </span><span class="s3">// 'confirm' ensures the user really wants to continue running the program.</span>
-    <span class="s1">std::string cleverEnough</span><span class="s5">;       </span><span class="s3">// 'cleverEnough' checks if the user thinks they are clever enough for more tasks.</span>
+int main() {
+    // Declare several variables used throughout the program
+    int iq, x, y;                  // 'iq' for IQ input, 'x' and 'y' for number inputs during calculations.
+    std::string choice;             // 'choice' will store user's yes/no input for various decisions.
+    int programChoice;              // 'programChoice' stores the user's selection for which program to run.
+    std::string operation;          // 'operation' stores the user’s choice between multiplication/division or power/square root.
+    std::string continueProgram;    // 'continueProgram' checks if the user wants to keep using the program.
+    std::string confirm;            // 'confirm' ensures the user really wants to continue running the program.
+    std::string cleverEnough;       // 'cleverEnough' checks if the user thinks they are clever enough for more tasks.
 
-    <span class="s3">// This 'do-while' loop repeatedly asks for the IQ input until the user decides to stop.</span>
-    <span class="s4">do </span><span class="s5">{</span>
-        <span class="s3">// Ask the user to input their IQ.</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Hey there welcome to my program, to continue please enter your IQ: &quot;</span><span class="s5">;</span>
-        <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">iq</span><span class="s5">;  </span><span class="s3">// Store the user's IQ input into the variable 'iq'.</span>
+    // This 'do-while' loop repeatedly asks for the IQ input until the user decides to stop.
+    do {
+        // Ask the user to input their IQ.
+        std::cout << "Hey there welcome to my program, to continue please enter your IQ: ";
+        std::cin >> iq;  // Store the user's IQ input into the variable 'iq'.
 
-        <span class="s3">// Check if the IQ is below 80.</span>
-        <span class="s4">if </span><span class="s5">(</span><span class="s1">iq </span><span class="s5">&lt; </span><span class="s6">80</span><span class="s5">) {</span>
-            <span class="s3">// If the IQ is too low, display a message and exit the program.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Whoops.... Sorry, but you don't qualify for the extra tasks.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Thanks for trying my program, have a great day!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s4">return </span><span class="s6">0</span><span class="s5">; </span><span class="s3">// Exit the program early because the user doesn't qualify.</span>
-        <span class="s5">}</span>
-        <span class="s4">else if </span><span class="s5">(</span><span class="s1">iq </span><span class="s5">&lt;= </span><span class="s6">150</span><span class="s5">) {</span>
-            <span class="s3">// If IQ is between 80 and 150, congratulate the user.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;You are pretty clever </span><span class="s4">\n</span><span class="s2">Well done!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-        <span class="s5">}</span>
-        <span class="s4">else </span><span class="s5">{</span>
-            <span class="s3">// If the IQ is above 150, display a special message for very clever users.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;OMG!! </span><span class="s4">\n</span><span class="s2">How did you get so clever?</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-        <span class="s5">}</span>
+        // Check if the IQ is below 80.
+        if (iq < 80) {
+            // If the IQ is too low, display a message and exit the program.
+            std::cout << "Whoops.... Sorry, but you don't qualify for the extra tasks.\n";
+            std::cout << "Thanks for trying my program, have a great day!\n";
+            return 0; // Exit the program early because the user doesn't qualify.
+        }
+        else if (iq <= 150) {
+            // If IQ is between 80 and 150, congratulate the user.
+            std::cout << "You are pretty clever \nWell done!\n";
+        }
+        else {
+            // If the IQ is above 150, display a special message for very clever users.
+            std::cout << "OMG!! \nHow did you get so clever?\n";
+        }
 
-        <span class="s3">// Ask if the user thinks they are clever enough to try additional tasks.</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Do you think you're clever enough to try some additional tasks? (yes/no): &quot;</span><span class="s5">;</span>
-        <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">cleverEnough</span><span class="s5">;  </span><span class="s3">// Store their answer in the variable 'cleverEnough'.</span>
+        // Ask if the user thinks they are clever enough to try additional tasks.
+        std::cout << "Do you think you're clever enough to try some additional tasks? (yes/no): ";
+        std::cin >> cleverEnough;  // Store their answer in the variable 'cleverEnough'.
 
-        <span class="s3">// If the user says 'yes', they will proceed to the next part of the program.</span>
-        <span class="s4">if </span><span class="s5">(</span><span class="s1">cleverEnough </span><span class="s5">== </span><span class="s2">&quot;yes&quot;</span><span class="s5">) {</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Great! Let's try some additional tasks.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s1">choice </span><span class="s5">= </span><span class="s2">&quot;yes&quot;</span><span class="s5">; </span><span class="s3">// Set choice to 'yes' to break out of this loop and move forward.</span>
-            <span class="s4">break</span><span class="s5">; </span><span class="s3">// Exit the IQ input loop and proceed to the additional tasks section.</span>
-        <span class="s5">}</span>
+        // If the user says 'yes', they will proceed to the next part of the program.
+        if (cleverEnough == "yes") {
+            std::cout << "Great! Let's try some additional tasks.\n";
+            choice = "yes"; // Set choice to 'yes' to break out of this loop and move forward.
+            break; // Exit the IQ input loop and proceed to the additional tasks section.
+        }
 
-        <span class="s3">// Ask the user if they want to enter another IQ (repeat the IQ input process).</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Would you like to enter another IQ? (yes/no): &quot;</span><span class="s5">;</span>
-        <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">choice</span><span class="s5">;  </span><span class="s3">// Store the user's response in the variable 'choice'.</span>
+        // Ask the user if they want to enter another IQ (repeat the IQ input process).
+        std::cout << "Would you like to enter another IQ? (yes/no): ";
+        std::cin >> choice;  // Store the user's response in the variable 'choice'.
 
-        <span class="s4">if </span><span class="s5">(</span><span class="s1">choice </span><span class="s5">== </span><span class="s2">&quot;yes&quot;</span><span class="s5">) {</span>
-            <span class="s3">// If the user wants to input another IQ, acknowledge it.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Yay, thanks!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-        <span class="s5">}</span>
+        if (choice == "yes") {
+            // If the user wants to input another IQ, acknowledge it.
+            std::cout << "Yay, thanks!\n";
+        }
 
-    <span class="s5">} </span><span class="s4">while </span><span class="s5">(</span><span class="s1">choice </span><span class="s5">== </span><span class="s2">&quot;yes&quot;</span><span class="s5">);  </span><span class="s3">// This loop will repeat if the user wants to input another IQ.</span>
+    } while (choice == "yes");  // This loop will repeat if the user wants to input another IQ.
 
-    <span class="s3">// After the IQ input loop, ask if the user wants to try a different program.</span>
-    <span class="s4">if </span><span class="s5">(</span><span class="s1">choice </span><span class="s5">!= </span><span class="s2">&quot;yes&quot;</span><span class="s5">) {</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Please try a different program if the iq test isn't for you! :) (yes/no): &quot;</span><span class="s5">;</span>
-        <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">choice</span><span class="s5">;  </span><span class="s3">// Store the user's response in 'choice'.</span>
+    // After the IQ input loop, ask if the user wants to try a different program.
+    if (choice != "yes") {
+        std::cout << "Please try a different program if the iq test isn't for you! :) (yes/no): ";
+        std::cin >> choice;  // Store the user's response in 'choice'.
 
-        <span class="s3">// If the user says 'no', end the program.</span>
-        <span class="s4">if </span><span class="s5">(</span><span class="s1">choice </span><span class="s5">== </span><span class="s2">&quot;no&quot;</span><span class="s5">) {</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;No worries, thanks for trying my program, have a great day!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s4">return </span><span class="s6">0</span><span class="s5">; </span><span class="s3">// End the program here.</span>
-        <span class="s5">}</span>
-    <span class="s5">}</span>
+        // If the user says 'no', end the program.
+        if (choice == "no") {
+            std::cout << "No worries, thanks for trying my program, have a great day!\n";
+            return 0; // End the program here.
+        }
+    }
 
-    <span class="s3">// This loop allows the user to run different programs multiple times.</span>
-    <span class="s4">while </span><span class="s5">(</span><span class="s1">choice </span><span class="s5">== </span><span class="s2">&quot;yes&quot;</span><span class="s5">) {</span>
-        <span class="s3">// Ask the user if they are sure about continuing with the program.</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;You pressed 'yes'. Are you sure you'd like to continue? (yes/no): &quot;</span><span class="s5">;</span>
-        <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">confirm</span><span class="s5">;  </span><span class="s3">// Store their answer in 'confirm'.</span>
+    // This loop allows the user to run different programs multiple times.
+    while (choice == "yes") {
+        // Ask the user if they are sure about continuing with the program.
+        std::cout << "You pressed 'yes'. Are you sure you'd like to continue? (yes/no): ";
+        std::cin >> confirm;  // Store their answer in 'confirm'.
 
-        <span class="s4">if </span><span class="s5">(</span><span class="s1">confirm </span><span class="s5">== </span><span class="s2">&quot;no&quot;</span><span class="s5">) {</span>
-            <span class="s3">// If they don't want to continue, end the program.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Cool, Ending the program. Have a nice day!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Program ended.....!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s4">break</span><span class="s5">;  </span><span class="s3">// Exit the loop and end the program.</span>
-        <span class="s5">}</span>
+        if (confirm == "no") {
+            // If they don't want to continue, end the program.
+            std::cout << "Cool, Ending the program. Have a nice day!\n";
+            std::cout << "Program ended.....!\n";
+            break;  // Exit the loop and end the program.
+        }
 
-        <span class="s3">// Present the user with options: addition, multiplication/division, powers/square root.</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;What would you like to run?:</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;1 - Addition</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;2 - Multiplication or Division</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;3 - Powers or Square Root</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Choose!! (1, 2, or 3): &quot;</span><span class="s5">;</span>
-        <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">programChoice</span><span class="s5">;  </span><span class="s3">// Store the user's choice in 'programChoice'.</span>
+        // Present the user with options: addition, multiplication/division, powers/square root.
+        std::cout << "What would you like to run?:\n";
+        std::cout << "1 - Addition\n";
+        std::cout << "2 - Multiplication or Division\n";
+        std::cout << "3 - Powers or Square Root\n";
+        std::cout << "Choose!! (1, 2, or 3): ";
+        std::cin >> programChoice;  // Store the user's choice in 'programChoice'.
 
-        <span class="s3">// If the user selects option 1 (Addition).</span>
-        <span class="s4">if </span><span class="s5">(</span><span class="s1">programChoice </span><span class="s5">== </span><span class="s6">1</span><span class="s5">) {</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Cool! Let's add two numbers.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Enter the first number (x): &quot;</span><span class="s5">;</span>
-            <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">x</span><span class="s5">;  </span><span class="s3">// Store the first number in 'x'.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Enter the second number (y): &quot;</span><span class="s5">;</span>
-            <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">y</span><span class="s5">;  </span><span class="s3">// Store the second number in 'y'.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;The answer for &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">x </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; and &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">y </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; is &quot; </span><span class="s5">&lt;&lt; (</span><span class="s1">x </span><span class="s5">+ </span><span class="s1">y</span><span class="s5">) &lt;&lt; </span><span class="s2">&quot;.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Display the result.</span>
-        <span class="s5">}</span>
-        <span class="s3">// If the user selects option 2 (Multiplication or Division).</span>
-        <span class="s4">else if </span><span class="s5">(</span><span class="s1">programChoice </span><span class="s5">== </span><span class="s6">2</span><span class="s5">) {</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Cool! Let's choose an operation.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Which one would you like to do? (type 'multiply' or 'divide'): &quot;</span><span class="s5">;</span>
-            <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">operation</span><span class="s5">;  </span><span class="s3">// Store the user's operation choice (multiply or divide).</span>
+        // If the user selects option 1 (Addition).
+        if (programChoice == 1) {
+            std::cout << "Cool! Let's add two numbers.\n";
+            std::cout << "Enter the first number (x): ";
+            std::cin >> x;  // Store the first number in 'x'.
+            std::cout << "Enter the second number (y): ";
+            std::cin >> y;  // Store the second number in 'y'.
+            std::cout << "The answer for " << x << " and " << y << " is " << (x + y) << ".\n";  // Display the result.
+        }
+        // If the user selects option 2 (Multiplication or Division).
+        else if (programChoice == 2) {
+            std::cout << "Cool! Let's choose an operation.\n";
+            std::cout << "Which one would you like to do? (type 'multiply' or 'divide'): ";
+            std::cin >> operation;  // Store the user's operation choice (multiply or divide).
 
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Enter the first number (x): &quot;</span><span class="s5">;</span>
-            <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">x</span><span class="s5">;  </span><span class="s3">// Store the first number in 'x'.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Enter the second number (y): &quot;</span><span class="s5">;</span>
-            <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">y</span><span class="s5">;  </span><span class="s3">// Store the second number in 'y'.</span>
+            std::cout << "Enter the first number (x): ";
+            std::cin >> x;  // Store the first number in 'x'.
+            std::cout << "Enter the second number (y): ";
+            std::cin >> y;  // Store the second number in 'y'.
 
-            <span class="s3">// If the user chose multiplication.</span>
-            <span class="s4">if </span><span class="s5">(</span><span class="s1">operation </span><span class="s5">== </span><span class="s2">&quot;multiply&quot;</span><span class="s5">) {</span>
-                <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;The answer for &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">x </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; and &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">y </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; is &quot; </span><span class="s5">&lt;&lt; (</span><span class="s1">x </span><span class="s5">* </span><span class="s1">y</span><span class="s5">) &lt;&lt; </span><span class="s2">&quot;.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Display the result.</span>
-            <span class="s5">}</span>
-            <span class="s3">// If the user chose division.</span>
-            <span class="s4">else if </span><span class="s5">(</span><span class="s1">operation </span><span class="s5">== </span><span class="s2">&quot;divide&quot;</span><span class="s5">) {</span>
-                <span class="s3">// Prevent division by zero (which is undefined).</span>
-                <span class="s4">if </span><span class="s5">(</span><span class="s1">y </span><span class="s5">!= </span><span class="s6">0</span><span class="s5">) {</span>
-                    <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;The answer for &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">x </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; divided by &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">y </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; is &quot; </span><span class="s5">&lt;&lt; (</span><span class="s1">x </span><span class="s5">/ </span><span class="s1">y</span><span class="s5">) &lt;&lt; </span><span class="s2">&quot;.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Display the result.</span>
-                <span class="s5">} </span><span class="s4">else </span><span class="s5">{</span>
-                    <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Division by zero is not allowed!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Display an error if the second number is 0.</span>
-                <span class="s5">}</span>
-            <span class="s5">} </span><span class="s4">else </span><span class="s5">{</span>
-                <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Invalid operation! Please restart and choose either 'multiply' or 'divide'.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Handle invalid input.</span>
-            <span class="s5">}</span>
-        <span class="s5">}</span>
-        <span class="s3">// If the user selects option 3 (Powers or Square Root).</span>
-        <span class="s4">else if </span><span class="s5">(</span><span class="s1">programChoice </span><span class="s5">== </span><span class="s6">3</span><span class="s5">) {</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Cool! Let's choose between power or square root.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Would you like to find the power of a number or the square root? (type 'power' or 'sqrt'): &quot;</span><span class="s5">;</span>
-            <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">operation</span><span class="s5">;  </span><span class="s3">// Store the user's choice (power or sqrt).</span>
+            // If the user chose multiplication.
+            if (operation == "multiply") {
+                std::cout << "The answer for " << x << " and " << y << " is " << (x * y) << ".\n";  // Display the result.
+            }
+            // If the user chose division.
+            else if (operation == "divide") {
+                // Prevent division by zero (which is undefined).
+                if (y != 0) {
+                    std::cout << "The answer for " << x << " divided by " << y << " is " << (x / y) << ".\n";  // Display the result.
+                } else {
+                    std::cout << "Division by zero is not allowed!\n";  // Display an error if the second number is 0.
+                }
+            } else {
+                std::cout << "Invalid operation! Please restart and choose either 'multiply' or 'divide'.\n";  // Handle invalid input.
+            }
+        }
+        // If the user selects option 3 (Powers or Square Root).
+        else if (programChoice == 3) {
+            std::cout << "Cool! Let's choose between power or square root.\n";
+            std::cout << "Would you like to find the power of a number or the square root? (type 'power' or 'sqrt'): ";
+            std::cin >> operation;  // Store the user's choice (power or sqrt).
 
-            <span class="s3">// If the user chose power.</span>
-            <span class="s4">if </span><span class="s5">(</span><span class="s1">operation </span><span class="s5">== </span><span class="s2">&quot;power&quot;</span><span class="s5">) {</span>
-                <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Enter the base number (x): &quot;</span><span class="s5">;</span>
-                <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">x</span><span class="s5">;  </span><span class="s3">// Store the base number in 'x'.</span>
-                <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Enter the exponent (y): &quot;</span><span class="s5">;</span>
-                <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">y</span><span class="s5">;  </span><span class="s3">// Store the exponent in 'y'.</span>
-                <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s1">x </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; to the power of &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">y </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; is &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">pow</span><span class="s5">(</span><span class="s1">x</span><span class="s5">, </span><span class="s1">y</span><span class="s5">) &lt;&lt; </span><span class="s2">&quot;.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Display the result using the pow() function.</span>
-            <span class="s5">}</span>
-            <span class="s3">// If the user chose square root.</span>
-            <span class="s4">else if </span><span class="s5">(</span><span class="s1">operation </span><span class="s5">== </span><span class="s2">&quot;sqrt&quot;</span><span class="s5">) {</span>
-                <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Enter the number to find the square root of (x): &quot;</span><span class="s5">;</span>
-                <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">x</span><span class="s5">;  </span><span class="s3">// Store the number in 'x'.</span>
-                <span class="s4">if </span><span class="s5">(</span><span class="s1">x </span><span class="s5">&gt;= </span><span class="s6">0</span><span class="s5">) {</span>
-                    <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;The square root of &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">x </span><span class="s5">&lt;&lt; </span><span class="s2">&quot; is &quot; </span><span class="s5">&lt;&lt; </span><span class="s1">sqrt</span><span class="s5">(</span><span class="s1">x</span><span class="s5">) &lt;&lt; </span><span class="s2">&quot;.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Display the result using the sqrt() function.</span>
-                <span class="s5">} </span><span class="s4">else </span><span class="s5">{</span>
-                    <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Square root of a negative number is not allowed!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Display an error for negative numbers.</span>
-                <span class="s5">}</span>
-            <span class="s5">} </span><span class="s4">else </span><span class="s5">{</span>
-                <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Invalid operation! Please restart and choose either 'power' or 'sqrt'.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;  </span><span class="s3">// Handle invalid input for power or square root choice.</span>
-            <span class="s5">}</span>
-        <span class="s5">}</span>
-        <span class="s4">else </span><span class="s5">{</span>
-            <span class="s3">// If the user enters a number other than 1, 2, or 3, notify them it's an invalid choice.</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Invalid choice! Please restart the program and choose 1, 2, or 3.</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-        <span class="s5">}</span>
+            // If the user chose power.
+            if (operation == "power") {
+                std::cout << "Enter the base number (x): ";
+                std::cin >> x;  // Store the base number in 'x'.
+                std::cout << "Enter the exponent (y): ";
+                std::cin >> y;  // Store the exponent in 'y'.
+                std::cout << x << " to the power of " << y << " is " << pow(x, y) << ".\n";  // Display the result using the pow() function.
+            }
+            // If the user chose square root.
+            else if (operation == "sqrt") {
+                std::cout << "Enter the number to find the square root of (x): ";
+                std::cin >> x;  // Store the number in 'x'.
+                if (x >= 0) {
+                    std::cout << "The square root of " << x << " is " << sqrt(x) << ".\n";  // Display the result using the sqrt() function.
+                } else {
+                    std::cout << "Square root of a negative number is not allowed!\n";  // Display an error for negative numbers.
+                }
+            } else {
+                std::cout << "Invalid operation! Please restart and choose either 'power' or 'sqrt'.\n";  // Handle invalid input for power or square root choice.
+            }
+        }
+        else {
+            // If the user enters a number other than 1, 2, or 3, notify them it's an invalid choice.
+            std::cout << "Invalid choice! Please restart the program and choose 1, 2, or 3.\n";
+        }
 
-        <span class="s3">// After the operation, ask if the user wants to try something else.</span>
-        <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;Please try something else! (yes/no): &quot;</span><span class="s5">;</span>
-        <span class="s1">std::cin </span><span class="s5">&gt;&gt; </span><span class="s1">continueProgram</span><span class="s5">;  </span><span class="s3">// Store the user's decision to continue in 'continueProgram'.</span>
+        // After the operation, ask if the user wants to try something else.
+        std::cout << "Please try something else! (yes/no): ";
+        std::cin >> continueProgram;  // Store the user's decision to continue in 'continueProgram'.
 
-        <span class="s3">// If the user says &quot;no&quot;, break out of the loop and end the program.</span>
-        <span class="s4">if </span><span class="s5">(</span><span class="s1">continueProgram </span><span class="s5">== </span><span class="s2">&quot;no&quot;</span><span class="s5">) {</span>
-            <span class="s1">std::cout </span><span class="s5">&lt;&lt; </span><span class="s2">&quot;No worries, thanks for trying my program, have a great day!</span><span class="s4">\n</span><span class="s2">&quot;</span><span class="s5">;</span>
-            <span class="s4">break</span><span class="s5">;  </span><span class="s3">// Exit the loop, which ends the program.</span>
-        <span class="s5">}</span>
-    <span class="s5">}</span>
+        // If the user says "no", break out of the loop and end the program.
+        if (continueProgram == "no") {
+            std::cout << "No worries, thanks for trying my program, have a great day!\n";
+            break;  // Exit the loop, which ends the program.
+        }
+    }
 
-    <span class="s4">return </span><span class="s6">0</span><span class="s5">;  </span><span class="s3">// End the program with a successful exit status.</span>
-<span class="s5">}</span>
-</pre>
-</body>
-</html>
+    return 0;  // End the program with a successful exit status.
+}
